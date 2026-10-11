@@ -80,27 +80,27 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   return (
     <div className="min-h-screen bg-gray-50/50 dark:bg-gray-950 flex flex-col md:flex-row">
       {/* Sidebar */}
-      <aside className="w-full md:w-64 bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 p-4 flex flex-col justify-between shrink-0">
+      <aside className="w-full md:w-64 bg-white dark:bg-gray-900 border-b md:border-b-0 md:border-r border-gray-200 dark:border-gray-800 p-3 sm:p-4 flex flex-col justify-between shrink-0">
         <div>
-          <div className="px-3 py-3 mb-4 rounded-xl bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700">
-            <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider block">
-              Active Executive Role
-            </span>
-            <div className="flex items-center justify-between mt-1">
-              <span className="font-bold text-sm text-gray-900 dark:text-white">
+          <div className="px-3 py-2 sm:py-3 mb-3 md:mb-4 rounded-xl bg-gray-50 dark:bg-gray-800/60 border border-gray-200 dark:border-gray-700 flex items-center justify-between">
+            <div className="min-w-0 pr-2">
+              <span className="text-[9px] sm:text-[10px] uppercase font-bold text-gray-400 tracking-wider block">
+                Active Executive Role
+              </span>
+              <span className="font-bold text-xs sm:text-sm text-gray-900 dark:text-white truncate block">
                 {user?.name || 'Executive Portal'}
               </span>
-              <span className="text-[10px] px-2 py-0.5 rounded font-mono font-bold bg-[#0075FF14] text-[#0075FF]">
-                {user?.role || 'OPS'}
-              </span>
             </div>
+            <span className="text-[10px] px-2 py-0.5 rounded font-mono font-bold bg-[#0075FF14] text-[#0075FF] shrink-0">
+              {user?.role || 'OPS'}
+            </span>
           </div>
 
-          <div className="text-[11px] font-bold uppercase tracking-wider text-gray-400 px-3 mb-2">
+          <div className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-gray-400 px-1 md:px-3 mb-2">
             Operations Modules
           </div>
 
-          <nav className="space-y-1">
+          <nav className="flex md:flex-col gap-1.5 md:gap-1 overflow-x-auto md:overflow-visible pb-1 md:pb-0 scrollbar-none">
             {allowedModules.map((item) => {
               const Icon = item.icon;
               const isActive = pathname.startsWith(item.href);
@@ -109,13 +109,13 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <Link
                   key={item.id}
                   href={item.href}
-                  className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all ${
+                  className={`flex items-center gap-2 md:gap-3 px-3 md:px-3.5 py-2 md:py-2.5 rounded-xl text-xs font-semibold whitespace-nowrap shrink-0 md:shrink transition-all ${
                     isActive
                       ? 'bg-[#0075FF] text-white shadow-md shadow-blue-500/20'
                       : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800'
                   }`}
                 >
-                  <Icon className="w-4 h-4 shrink-0" />
+                  <Icon className="w-3.5 h-3.5 md:w-4 md:h-4 shrink-0" />
                   <span>{item.name}</span>
                 </Link>
               );
@@ -123,7 +123,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </nav>
         </div>
 
-        <div className="pt-4 border-t border-gray-200 dark:border-gray-800 text-[11px] text-gray-400">
+        <div className="hidden md:block pt-4 border-t border-gray-200 dark:border-gray-800 text-[11px] text-gray-400">
           <p className="leading-tight">
             Role-Based Access Guarded. Internal CreditSea Operations console.
           </p>

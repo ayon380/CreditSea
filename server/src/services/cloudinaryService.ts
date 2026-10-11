@@ -38,34 +38,34 @@ export const uploadSalarySlip = async (
     process.env.CLOUDINARY_API_KEY &&
     process.env.CLOUDINARY_API_SECRET
   ) {
-    cloudinary.config({
-      cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-      api_key: process.env.CLOUDINARY_API_KEY,
-      api_secret: process.env.CLOUDINARY_API_SECRET,
-    });
-
-    return new Promise((resolve, reject) => {
-      const uploadStream = cloudinary.uploader.upload_stream(
-        {
-          folder: 'creditsea/salary_slips',
-          resource_type: 'auto',
-        },
-        (error, result) => {
-          if (error || !result) {
-            return reject(error || new Error('Cloudinary upload returned empty result'));
+    try {
+      const result = await new Promise<UploadResult>((resolve, reject) => {
+        const uploadStream = cloudinary.uploader.upload_stream(
+          {
+            folder: 'creditsea/salary_slips',
+            resource_type: 'auto',
+          },
+          (error, res) => {
+            if (error || !res) {
+              return reject(error || new Error('Cloudinary upload failed'));
+            }
+            resolve({
+              publicId: res.public_id,
+              secureUrl: res.secure_url,
+              fileName: file.originalname,
+              fileSize: file.size,
+              mimeType: file.mimetype,
+            });
           }
-          resolve({
-            publicId: result.public_id,
-            secureUrl: result.secure_url,
-            fileName: file.originalname,
-            fileSize: file.size,
-            mimeType: file.mimetype,
-          });
-        }
-      );
+        );
 
-      uploadStream.end(file.buffer);
-    });
+        uploadStream.end(file.buffer);
+      });
+
+      return result;
+    } catch (cloudErr) {
+      console.warn('Cloudinary upload encountered error, using local storage fallback:', cloudErr);
+    }
   }
 
   // Fallback: Local storage in /uploads directory

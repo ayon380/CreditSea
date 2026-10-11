@@ -11,6 +11,16 @@
 
 ---
 
+## 🚀 Live Deployments & Demo Video
+
+| Resource | Link | Details |
+|---|---|---|
+| **🌐 Live Frontend App** | [https://credit-sea-kk9c.vercel.app](https://credit-sea-kk9c.vercel.app) | Deployed on **Vercel** |
+| **⚡ Live Backend API** | [https://creditsea-1-zx6w.onrender.com](https://creditsea-1-zx6w.onrender.com) | Deployed on **Render** (Node.js + Express + MongoDB Atlas) |
+| **🎥 Video Demonstration** | [Google Drive Video Walkthrough](https://drive.google.com/file/d/1qzyZaL4s-AEfbGryk1MX8RCnpU-rgwYD/view?usp=sharing) | Complete Lifecycle Walkthrough & 4 Operations Modules |
+
+---
+
 ## 1. Project Overview
 
 CreditSea LMS is a production-ready lending platform architected according to the official CreditSea fintech design system (`https://www.creditsea.com`). It delivers:
@@ -54,7 +64,7 @@ Run `npm run seed` in the `server` directory to pre-seed all accounts and popula
 
 ### 1. Clone & Install
 ```bash
-git clone https://github.com/your-username/CreditSea.git
+git clone https://github.com/ayon380/CreditSea.git
 cd CreditSea
 
 # Install Backend dependencies

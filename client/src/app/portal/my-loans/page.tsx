@@ -238,7 +238,7 @@ function MyLoansContent() {
                   </div>
 
                   <div className="flex flex-col sm:items-end gap-1.5">
-                    <div className="text-right">
+                    <div className="text-left sm:text-right">
                       <div className="text-xs text-gray-400 uppercase font-bold tracking-wider">
                         Principal Loan Amount
                       </div>
