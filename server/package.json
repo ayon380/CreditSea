@@ -4,7 +4,7 @@
   "description": "Production-ready backend for CreditSea Loan Management System",
   "main": "dist/server.js",
   "scripts": {
-    "build": "rm -rf dist && tsc",
+    "build": "npm install && rm -rf dist && tsc",
     "start": "node dist/server.js",
     "dev": "nodemon --watch src -e ts --exec ts-node src/server.ts",
     "seed": "ts-node src/scripts/seed.ts",
