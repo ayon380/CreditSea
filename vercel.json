@@ -4,12 +4,12 @@
     "creditsea-frontend": {
       "root": "client",
       "framework": "nextjs",
-      "buildCommand": "npm install && npm run build"
+      "buildCommand": "npm install --include=dev && npm run build"
     },
     "creditsea-backend": {
       "root": "server",
       "framework": "express",
-      "buildCommand": "npm install && npm run build"
+      "buildCommand": "npm install --include=dev && npm run build"
     }
   },
   "rewrites": [
