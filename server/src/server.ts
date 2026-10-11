@@ -57,6 +57,18 @@ app.get('/api/health', (req, res) => {
   });
 });
 
+// Ensure MongoDB connection for every API route
+app.use(async (req, res, next) => {
+  const connected = await connectDB();
+  if (!connected && !process.env.MONGODB_URI) {
+    return res.status(500).json({
+      success: false,
+      message: 'Server configuration error: MONGODB_URI is not configured in Vercel environment variables.',
+    });
+  }
+  next();
+});
+
 // Mount Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/bre', breRoutes);
@@ -67,10 +79,15 @@ app.use('/api/operations', operationsRoutes);
 // Global Error Handler
 app.use(errorHandler);
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`🚀 CreditSea LMS Server is running on port ${PORT}`);
-  console.log(`🌐 Base API URL: http://localhost:${PORT}/api`);
-});
+// Start server locally (on Vercel, the exported app is invoked as a serverless function)
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`🚀 CreditSea LMS Server is running on port ${PORT}`);
+    console.log(`🌐 Base API URL: http://localhost:${PORT}/api`);
+  });
+}
 
 export default app;
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = app;
+}
