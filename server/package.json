@@ -1,0 +1,45 @@
+{
+  "name": "creditsea-backend",
+  "version": "1.0.0",
+  "description": "Production-ready backend for CreditSea Loan Management System",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "start": "node dist/server.js",
+    "dev": "nodemon --watch src -e ts --exec ts-node src/server.ts",
+    "seed": "ts-node src/scripts/seed.ts",
+    "seed:prod": "node dist/scripts/seed.js"
+  },
+  "keywords": [
+    "creditsea",
+    "lms",
+    "loan-management-system",
+    "express",
+    "typescript",
+    "mongodb"
+  ],
+  "author": "CreditSea Engineering",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.5.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.5",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.7",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.10.7",
+    "nodemon": "^3.1.9",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}

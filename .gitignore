@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+.next/
+out/
+build/
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+atlas-credentials.env
+
+# Uploads & temporary media
+server/uploads/*
+!server/uploads/.gitkeep
+
+# Logs & Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.turbo
+
+# OS metadata
+.DS_Store
+*.pem
+Thumbs.db
