@@ -158,41 +158,8 @@ npm run test:e2e
 
 ---
 
-## 5. Walkthrough Script for Submission Video (3–5 min)
 
-When recording your demonstration screen recording:
-
-1. **Brand & Theme Overview (0:00 - 0:45)**:
-   - Open `http://localhost:3000`. Show the CreditSea official brand styling (`#0075FF` electric blue, clean fintech typography).
-   - Click the **Light / Dark Mode toggle** in the navbar to demonstrate instant, seamless theme switching.
-   - Adjust the homepage loan sliders to demonstrate live Simple Interest calculation.
-
-2. **Borrower Flow: BRE Rejection & Passing (0:45 - 2:00)**:
-   - Click "Apply for Loan" or navigate to `/portal`.
-   - **Step 1**: Register as a new borrower or sign in.
-   - **Step 2**: Enter intentionally failing data (Age 19, Monthly Salary ₹15,000, Unemployed). Show how the live BRE highlights failures and the server blocks progression.
-   - Now change to valid data (Age 30, Salary ₹65,000, PAN `ABCDE1234F`, Salaried) $\rightarrow$ all 4 checks turn green. Click "Verify & Proceed".
-   - **Step 3**: Upload a salary slip (PDF/PNG/JPG). Show the verified document card.
-   - **Step 4**: Set Loan Amount (e.g. ₹1,00,000) and Tenure (90 Days). Show the live calculation panel ($SI = ₹2,958.90$, Total = $₹1,02,958.90$).
-   - Click "Apply for Loan" $\rightarrow$ confetti celebration triggers, redirecting to `/portal/my-loans` with the newly assigned Loan ID in `APPLIED` status.
-
-3. **Operations: Sanction & Disbursement (2:00 - 3:15)**:
-   - Click the navbar **"Switch Role"** button and select **Sanction Officer** (`sanction@creditsea.com`).
-   - Notice the dashboard shows *only* the Sanction queue.
-   - Review the applied loan, click "View Doc", and click **"Approve"**. Status becomes `SANCTIONED`.
-   - Switch role to **Disbursement Manager** (`disburse@creditsea.com`).
-   - Notice the loan is now in the Disbursement queue. Enter a bank NEFT reference number (e.g. `NEFT-2026-9901`) and click **"Disburse Funds"**. Status becomes `DISBURSED`.
-
-4. **Operations: Collection, UTR Ledger & Auto-Closure (3:15 - 4:30)**:
-   - Switch role to **Collection Executive** (`collect@creditsea.com`).
-   - Notice the active loan with its outstanding balance.
-   - Click **"Record UTR"**. Enter a unique UTR (e.g. `UTR99887766`), choose full payment, and submit.
-   - Show the success celebration: remaining balance becomes ₹0 and loan status **AUTO-CLOSES**!
-   - Switch to **Admin** to show global portfolio metrics updating across all pipelines.
-
----
-
-## 6. Project Directory Structure
+## 5. Project Directory Structure
 
 ```
 CreditSea/
@@ -245,7 +212,3 @@ CreditSea/
 ```
 
 ---
-
-## 7. License
-
-Built for the CreditSea Full-Stack Engineering Evaluation. All rights reserved.
